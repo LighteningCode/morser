@@ -87,9 +87,9 @@ export default function App() {
 
       <View style={{ height: 50 }}></View>
 
-      <View style={inputStyles.button}>
+      {/* <View style={inputStyles.button}>
         <Button color="#fff" title="Send Morse" />
-      </View>
+      </View> */}
 
     </View>
   );
@@ -111,6 +111,8 @@ const inputStyles = StyleSheet.create({
     borderWidth: 1,
     height: 40,
     width: 250,
+    paddingLeft: 10,
+    paddingRight: 10
   },
   button: {
     borderWidth: 2,
