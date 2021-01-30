@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 
 const morseCode = {
@@ -55,11 +55,11 @@ export default function App() {
     let textArray = text.split("")
 
     let morseEq = ""
-    
+
     if (text) {
       textArray.forEach(char => {
         let val = morseCode[char.toLocaleLowerCase()]
-        morseEq += (val) ? val : char 
+        morseEq += (val) ? val : char
       });
     }
 
@@ -76,14 +76,20 @@ export default function App() {
 
       <Text style={{ marginTop: 20 }}>Enter Morse Code here:</Text>
       <TextInput
-        style={textBoxStyles.container}
+        style={inputStyles.container}
         value={text}
         onChangeText={onChange}
       />
 
 
       <Text style={{ marginTop: 20 }}>Morse Equivalent:</Text>
-      <Text style={{fontSize: 50}}>{(morse === '') ? "No entry" : morse}</Text>
+      <Text style={{ fontSize: 50 }}>{(morse === '') ? "No entry" : morse}</Text>
+
+      <View style={{ height: 50 }}></View>
+
+      <View style={inputStyles.button}>
+        <Button color="#fff" title="Send Morse" />
+      </View>
 
     </View>
   );
@@ -98,12 +104,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const textBoxStyles = StyleSheet.create({
+const inputStyles = StyleSheet.create({
   container: {
     borderColor: "#000",
     borderRadius: 5,
     borderWidth: 1,
     height: 40,
     width: 250,
+  },
+  button: {
+    borderWidth: 2,
+    borderRadius: 5,
+    borderColor: "#fff",
+    backgroundColor: "#0384fc"
   }
 })
