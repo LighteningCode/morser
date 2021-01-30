@@ -47,9 +47,23 @@ const morseCode = {
 export default function App() {
 
   const [text, setText] = useState("")
+  const [morse, setMorse] = useState("")
 
   const onChange = (text) => {
     setText(text)
+
+    let textArray = text.split("")
+
+    let morseEq = ""
+    
+    if (text) {
+      textArray.forEach(char => {
+        let val = morseCode[char.toLocaleLowerCase()]
+        morseEq += (val) ? val : char 
+      });
+    }
+
+    setMorse(morseEq)
   }
 
   return (
@@ -69,7 +83,7 @@ export default function App() {
 
 
       <Text style={{ marginTop: 20 }}>Morse Equivalent:</Text>
-      <Text>{(text === '') ? "No entry" : text}</Text>
+      <Text style={{fontSize: 50}}>{(morse === '') ? "No entry" : morse}</Text>
 
     </View>
   );
