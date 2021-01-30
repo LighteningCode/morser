@@ -46,10 +46,10 @@ const morseCode = {
 
 export default function App() {
 
-  const [state, setState] = useState("")
+  const [text, setText] = useState("")
 
   const onChange = (text) => {
-    setState(text)
+    setText(text)
   }
 
   return (
@@ -63,13 +63,13 @@ export default function App() {
       <Text style={{ marginTop: 20 }}>Enter Morse Code here:</Text>
       <TextInput
         style={textBoxStyles.container}
-        value={state}
+        value={text}
         onChangeText={onChange}
       />
 
 
       <Text style={{ marginTop: 20 }}>Morse Equivalent:</Text>
-      <Text>{(state === '') ? "No entry" : state}</Text>
+      <Text>{(text === '') ? "No entry" : text}</Text>
 
     </View>
   );
