@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-
+import Clipboard from 'expo-clipboard';
 
 const morseCode = {
   a: "._",
@@ -67,7 +67,7 @@ export default function App() {
   }
 
   const handleCopy = () => {
-
+    Clipboard.setString(morse);
   }
 
   return (
