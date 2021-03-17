@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 
 const morseCode = {
@@ -66,6 +66,10 @@ export default function App() {
     setMorse(morseEq)
   }
 
+  const handleCopy = () => {
+
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -83,7 +87,9 @@ export default function App() {
 
 
       <Text style={{ marginTop: 20 }}>Morse Equivalent:</Text>
-      <Text style={{ fontSize: 50 }}>{(morse === '') ? "No entry" : morse}</Text>
+      <TouchableOpacity onPress={handleCopy}>
+        <Text selectable style={{ fontSize: 50 }}>{(morse === '') ? "No entry" : morse}</Text>
+      </TouchableOpacity>
 
       <View style={{ height: 50 }}></View>
 
